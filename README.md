@@ -2,59 +2,49 @@
 
 Proyecto de la Sumativa 5 de Desarrollo Frontend II (PFY2202).
 
-Rumbo Sur permite explorar destinos de Chile, conocer sus actividades y
-consultar vuelos y hoteles con fechas, precios en pesos chilenos y disponibilidad.
+Rumbo Sur permite explorar destinos de Chile, conocer sus actividades y consultar
+vuelos y hoteles con fechas, precios en pesos chilenos y disponibilidad.
 
-[Ver la aplicación publicada](https://valeriaacevedoc.github.io/viajes-valeria-acevedo-PFY2202/)
+[Ver la aplicación publicada en GitHub Pages](https://valeriaacevedoc.github.io/viajes-valeria-acevedo-PFY2202/)
 
 ## Tecnologías
 
 - React y Vite para la interfaz.
 - React Router para navegar entre Inicio, Destinos y el detalle de cada destino.
-- Mock Service Worker (MSW) para simular la API REST y la API GraphQL.
+- Mock Service Worker (MSW) para simular las API REST y GraphQL.
 
 ## Ejecutar el proyecto
 
-Usa Node.js 24, la versión configurada para el despliegue.
-
-Si clonaste el repositorio, entra a la carpeta de la aplicación desde la raíz:
-
-```bash
-cd viajes-valeria-acevedo-PFY2202
-```
-
-Si descargaste el ZIP, abre directamente la carpeta que contiene `package.json`.
-
-Instala las dependencias e inicia la aplicación:
+Usa Node.js 24. Abre la carpeta que contiene `package.json` y ejecuta:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Abre la dirección completa que Vite muestra junto a `Local:`.
+Abre la dirección que Vite muestra junto a `Local:`.
 
 ## Probar la aplicación
 
-1. Entra a **Destinos**. El catálogo se obtiene mediante `GET /api/destinos`
-   y muestra el país y las actividades de cada destino.
+1. Entra a **Destinos**. El catálogo obtiene el nombre, el país y las actividades
+   de cada destino mediante `GET /api/destinos`.
 2. En la tarjeta de **Santiago**, selecciona **Ver vuelos y hoteles**. La consulta
    GraphQL `OpcionesDestino` muestra el vuelo Concepción → Santiago y el Hotel
    Barrio Parque, con fechas, precios y disponibilidad.
-3. Vuelve al catálogo antes de 60 segundos para comprobar que la app reutiliza
-   la última respuesta correcta. **Actualizar destinos** limpia la caché y
-   solicita datos nuevos.
+3. Regresa al catálogo antes de 60 segundos para comprobar que se reutiliza la
+   última respuesta correcta. **Actualizar destinos** limpia la caché y realiza
+   una nueva consulta.
 
 ## Probar el reintento
 
-Con el catálogo visible, escribe en la consola del navegador:
+Con el catálogo visible, escribe este comando en la consola del navegador:
 
 ```js
 sessionStorage.setItem('fallarDestinosUnaVez', 'true')
 ```
 
-Pulsa **Actualizar destinos**. MSW simulará un error del servidor y la lista
-seguirá visible. Pulsa **Reintentar** para volver a consultar el catálogo.
+Pulsa **Actualizar destinos**. MSW simulará un error del servidor y los destinos
+seguirán visibles. Luego pulsa **Reintentar** para volver a cargar el catálogo.
 
 ## Compilar y revisar la versión de producción
 
@@ -65,4 +55,11 @@ npm run build
 npm run preview
 ```
 
-Abre la dirección completa que Vite muestra junto a `Local:`.
+Abre la dirección que Vite muestra junto a `Local:`.
+
+## Evidencias
+
+- [Vista de escritorio](Evidencias/escritorio.png)
+- [Vista móvil](Evidencias/modoCelular.png)
+- [Prueba en Opera](Evidencias/Navegador_opera.png)
+- [Segunda captura de la prueba en Opera](Evidencias/otroNavegador_opera.png)
